@@ -3,6 +3,7 @@
 
     <head>
         <title>
+            Dashboard
         </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -116,8 +117,11 @@
         </style>
 
         <script> /* pari nai */
-            let drpdown = document.querySelector("#top_list").nodeV;
-            console.log(drpdown);
+            let drpdown = document.querySelector('select').value;
+            if(drpdown === 'logOut'){
+                // somehow log out
+            }
+
 
         </script>
 
@@ -132,9 +136,9 @@
                         <select id="top_list" name="log_out" >
                             <option value="userName"> Mosammat Rifaa Juhani</option>
                             <option value="logOut"> 
-                                <a href="login_page.htm">Log Out</a> 
+                                Log Out
                             </option>
-                        </select> <!-- should be changed using JS and php -->
+                        </select> 
                     </label>
                 
 
@@ -202,3 +206,4 @@
     </body>
 
 </html>
+
