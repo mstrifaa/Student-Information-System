@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            IUT-SIS
+        </title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                height: 650px;
+                background-color: white;
+                margin: 0px;
+
+                background-image: url('iut_picture6.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            div#body {
+                margin: 0px;
+                background-color: rgb(241, 238, 238);
+                opacity: 0.5;
+                height: 100%;
+                z-index: -1;
+                padding-top: 1px;
+
+            }
+
+            #pseudo_background{
+                position: fixed;
+                top: 0px;
+                z-index: 1;
+                margin: 0px;
+                padding: 30% 30%;
+                height: 100%;
+                padding-top: 1px;
+            }
+
+            #pseudo_background p {
+                background-color: rgb(250, 242, 242);
+
+                width: max-content;
+                padding: 10px 3em;
+                font-size: 3em;
+                margin: 2rem auto 0px;
+
+                opacity: 1;
+
+            }
+
+            a {
+                display: block;
+                width: max-content;
+                height: max-content;
+                background-color: white;
+                font-size: 2em;
+                padding: 0.5em 1.2em;
+                cursor: pointer;
+                border: 1px solid rgb(139, 139, 139);
+                text-decoration: none;
+                border-radius: 1.5em;
+                margin: 30px auto;
+                font-family: sans-serif;
+                color: green;
+                transition: background-color 0.5s;
+            }
+
+            a:hover {
+                background-color: rgb(197, 191, 191);
+            }
+
+        </style>
+
+        <script>
+            document.querySelector('body').style.height = screen.availHeight;
+        </script>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    </head>
+
+    <body>
+
+        <div id="body">
+            
+        </div>
+
+        <div id="pseudo_background">
+            <p>
+                SIS IUT
+            </p>
+
+            <a href="registration.htm" style="margin-top: 5em;"> Sign Up </a>
+            <a href="login_page.htm"> Login </a>
+        </div>
+    </body>
+
+</html>
