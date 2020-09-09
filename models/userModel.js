@@ -2,49 +2,67 @@ const crypto = require('crypto');
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Enter your name!']
-  },
-  email: {
-    type: String,
-    required: [true, 'Enter your email'],
-    unique: true,
-    lowercase: true,
-    validate: [validator.isEmail, 'Provide a valid Email!']
-  },
-  photo: String,
-  role: {
-    type: String,
-    enum: ['student', 'admin', 'faculty'],
-    default: 'student'
-  },
-  password: {
-    type: String,
-    required: [true, 'Enter a password'],
-    minlength: 8,
-    select: false
-  },
-  passwordConfirm: {
-    type: String,
-    required: [true, 'Confirm your password'],
-    validate: {
-      //this only works on CREATE and SAVE
-      validator: function(el) {
-        return el === this.password;
-      },
-      message: 'Passwords are not same!'
+const userSchema = new mongoose.Schema(
+  {
+    student_id: {
+      type: String,
+      required: [true, 'Enter your Student ID'],
+      unique: true
+    },
+    name: {
+      type: String,
+      required: [true, 'Enter your name!']
+    },
+    email: {
+      type: String,
+      required: [true, 'Enter your email'],
+      unique: true,
+      lowercase: true,
+      validate: [validator.isEmail, 'Provide a valid Email!']
+    },
+    photo: String,
+    role: {
+      type: String,
+      enum: ['student', 'admin', 'faculty'],
+      default: 'student'
+    },
+    password: {
+      type: String,
+      required: [true, 'Enter a password'],
+      minlength: 8,
+      select: false
+    },
+    passwordConfirm: {
+      type: String,
+      required: [true, 'Confirm your password'],
+      validate: {
+        //this only works on CREATE and SAVE
+        validator: function(el) {
+          return el === this.password;
+        },
+        message: 'Passwords are not same!'
+      }
+    },
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+    active: {
+      type: Boolean,
+      default: true,
+      select: false
     }
   },
-  passwordChangedAt: Date,
-  passwordResetToken: String,
-  passwordResetExpires: Date,
-  active: {
-    type: Boolean,
-    default: true,
-    select: false
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
   }
+);
+
+//virtual populate
+userSchema.virtual('results', {
+  ref: 'Result',
+  foreignField: 'user',
+  localField: '_id'
 });
 
 //hash password by using document middleware

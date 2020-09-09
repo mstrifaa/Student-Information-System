@@ -16,6 +16,13 @@ exports.getMe = (req, res, next) => {
   next();
 };
 
+exports.getStudentId = catchAsync(async (req, res, next) => {
+  let query = await User.findOne({ student_id: { $eq: req.body.student_id } });
+  req.body.user = query._id;
+  // console.log(query.name);
+  next();
+});
+
 //this update is for user
 exports.updateMe = catchAsync(async (req, res, next) => {
   //1)create error if user posts password data
@@ -55,7 +62,7 @@ exports.createUser = (req, res) => {
 };
 
 exports.getAllUsers = factory.getAll(User);
-exports.getUser = factory.getOne(User);
+exports.getUser = factory.getOne(User, { path: 'results' });
 // updateUser is only for admin don't update password with this because findByIdAndUpdate doesn;t run all the save middlewares
 exports.updateUser = factory.updateOne(User);
 exports.deleteUser = factory.deleteOne(User);
