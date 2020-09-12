@@ -1,0 +1,76 @@
+doctype html
+html
+
+    head
+        title Results
+
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+            
+
+        
+        meta(name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0")
+
+        link(rel="stylesheet" type="text/css" href=".\..\css\results.css")
+        
+        script(src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous")
+
+        script.
+            $(document).ready(function(){
+                document.querySelector('body').style.height = screen.availHeight;
+                document.querySelector('body').style.width = screen.availWidth;
+            });
+ 
+
+    body
+        div
+            div(id="top_bar")
+                button.open_btn(onclick="openNav()") &#9776;
+
+                label(for="top_list")
+                    select(id="top_list" name="log_out")
+                        option(value="userName") Mosammat Rifaa Juhani
+                        option(value="logOut") Log Out
+
+            div(id="side_bar")
+                p SIS 
+                    a(href="javascript:void(0)" class="close_btn" onclick="closeNav()") &#9776;
+
+                ul
+                    li
+                        a(href="/dashboard") Dashboard
+                    li
+                        a(href="/profile") Profile
+                    li
+                        a(href="/course_registration") Course Registration
+                    li
+                        a(href="/") Result
+                    li
+                        a(href="") Internet Acoount
+                    li
+                        a(href="/change_password") Change Password
+            
+
+            p#heading Course Registration
+
+
+
+            div(id="main_section")
+                //- for each semestr
+                div.semester #semester_name GPA: #semster_gpa  CGPA: #cgpa
+                    br
+                
+                    ul
+                        //- for each course 
+                        li #course_name 
+                            div.grade #grade 
+
+                 
+
+            
+
+        script(src=".\..\frontend_js\side_bar.js")
+
+        script
+             // toggling, later
+            // somehow log out
+       

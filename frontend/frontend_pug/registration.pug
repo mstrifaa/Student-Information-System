@@ -1,0 +1,169 @@
+doctype html
+html
+
+    head
+        title Sign Up
+
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+
+        meta(name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0")
+
+        link(rel="stylesheet" type="text/css" href=".\..\css\registration.css")
+
+        script(src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous")
+        
+        script.
+                $(document).ready(function(){
+                    document.querySelector('body').style.height = screen.availHeight;
+                    document.querySelector('body').style.width = screen.availWidth;
+                });
+
+    body
+        div
+            form(method="POST" action="... form_handler...")
+
+                div(id="left_box" class="inside_form")
+
+                    p Sign Up to SIS IUT
+                    br 
+                    div(class="input")
+                        label(for="id") Student Number 
+                            span(style={"color": "red"}) *
+
+                        input(id="id" type="text" name="student_no" required)
+                    
+
+                    div(class="input")
+                        label(for="student_name") Student Name (Full Name)
+                            span(style={"color": "red"}) * 
+
+                        input(id="student_name" type="text" name="student_name" required)
+                    
+                    divz(id="userPhoto" style={"width": "max-content"})
+                        label(for="userImage") Upoad your picture
+                        input(type="file" id="userImage" required)
+                        
+                   
+                    br
+
+                    div(class="input")
+                        label(for="dob") Date of birth 
+                            span(style={"color": "red"}) *
+
+                        input(id="dob" type="date" name="d_birth" required)
+                   
+
+                    div(class="input") Gender 
+                        span(style={"color": "red"}) *
+                        label(for="male" style={"margin-left": "2rem"}) Male
+                        input(id="male" type="radio" name="gender")
+
+                        label(for="female" style={"margin-left": "2rem"}) Female
+                        input(id="female" type="radio" name="gender")
+
+                
+                    br 
+
+                    div(class="input")
+                        label(for="email") E-mail Address
+                            span(style={"color": "red"}) *
+
+                        input(id="email" type="email" name="student_email" required)
+                    
+
+                    div(class="input")
+                        label(for="phone") Contact Number
+                            span(style={"color": "red"}) *
+
+                        input(id="phone" type="tel" name="phone" required)
+                    
+
+                    div(class="input")
+                        label(for="present_address") Present Address 
+                            span(style={"color": "red"}) *
+                        br
+                        input(style={"margin-left": "0px", "width": "90%"} id="present_address" type="text" name="present_address" required)
+                    
+                    br 
+                    div(class="input")
+                        label(for="password") Password 
+                            span(style={"color": "red"}) *
+                        input(id="password" type="password" name="password" required)
+                    
+
+                    div(class="input")
+                        label(for="re_password") Retype Password 
+                            span(style={"color": "red"}) *
+                        input(id="re_password" type="password" name="re_password" required)
+                  
+
+                div(id="right_box" class="inside_form")
+                    p(style={"margin": "1rem"}) Personal Information
+                    br
+                    span(style={"color": "rgb(8, 44, 8)",
+                                 "font-family": "sans-serif",
+                                 "margin-left": "1rem"}) Please provide all information
+
+                    div(class="input")
+                        label(for="father_name") Father's Name
+                            span(style={"color": "red"}) *
+
+                        input(id="father_name" type="text" name="father_name" required)
+                    
+                    div(class="input")
+                        label(for="father_profession") Father's Profession
+
+                        input(id="father_profession" type="text" name="father_profession")
+                    
+                    div(class="input")
+                        label(for="father_phone") Father's Phone
+
+                        input(id="father_phone" type="tel" name="father_phone")
+                   
+
+                    br
+
+                    div(class="input")
+                        label(for="mother_name") Mother's Name
+                            span(style={"color": "red"}) *
+
+                        input(id="mother_name" type="text" name="mother_name" required)
+                   
+                    div(class="input")
+                        label(for="mother_profession") Mother's Profession
+
+                        input(id="mother_profession" type="text" name="mother_profession")
+                    
+                    div(class="input")
+                        label(for="mother_phone") Mother's Phone
+
+                        input(id="mother_phone" type="tel" name="mother_phone")
+                    
+                    
+                    br
+
+                    div(class="input")
+                        label(for="gurdian_name") Guardian's Name 
+                            span(style={"color": "red"}) *
+
+                        input(id="guardian_name" type="text" name="guardian_name" required)
+                    
+
+                    div(class="input")
+                        label(for="guardian_phone") Guardian's Phone 
+                           span(style={"color": "red"}) *
+
+                        input(id="guardian_phone" type="tel" name="guardian_phone" required)
+                    
+
+                    div(class="input")
+                        label(for="guardian_address") Guardian's Address 
+                            span(style={"color": "red"}) *
+                        br
+                        input(style={"margin-left": "0px", "width": "90%"} id="guardian_address" type="text" name="guardian_address" required)
+                    
+
+                    br 
+
+                button(type="submit" id="submit") Submit
+         

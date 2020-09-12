@@ -1,0 +1,30 @@
+doctype html
+html
+
+    head
+        title IUT-SIS
+
+        link(rel="stylesheet" type="text/css" href=".\..\css\homepage.css")
+
+        script(src="https://code.jquery.com/jquery-3.5.1.js", integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=", crossorigin="anonymous")
+
+        script.
+                $(document).ready(function(){
+                    document.querySelector('body').style.height = screen.availHeight;
+                    document.querySelector('body').style.width = screen.availWidth;
+                });
+       
+
+        meta(name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0")
+  
+
+    body
+
+        div#body
+            
+
+        div#pseudo_background
+            p Welcome to Student Information System
+
+            a(href="/registration" style={"margin-top": "5em"}) Sign Up
+            a(href="/login_page") Login

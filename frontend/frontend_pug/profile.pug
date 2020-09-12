@@ -1,0 +1,290 @@
+doctype html
+html
+
+    head
+        title Profile
+
+
+        meta(name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0")
+ 
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+    
+
+        link(rel="stylesheet" type="text/css" href=".\..\css\profile.css")
+       
+        script(src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous")
+
+        script.
+                $(document).ready(function(){
+                    document.querySelector('body').style.height = screen.availHeight;
+                    document.querySelector('body').style.width = screen.availWidth;
+                });
+
+    body
+        div
+            div#top_bar
+                button(class="open_btn" onclick="openNav()") &#9776;
+
+                label(for="top_list")
+                    select#top_list(name="log_out")
+                        option(value="userName") Mosammat Rifaa Juhani
+                        option(value="logOut") Log Out
+
+
+            div#side_bar
+                p.
+                    SIS (a href="javascript:void(0)" class="close_btn" onclick="closeNav()") &#9776;
+
+                ul
+                    li
+                        a(href="/dashboard") Dashboard
+                    li
+                        a(href="#") Profile
+                    li
+                        a(href="/course_reg") Course Registration
+                    li
+                        a(href="/results") Result
+                    li
+                        a(href=" ") Internet Acoount
+                    li
+                        a(href="/change_password") Change Password
+
+            p#heading Profile
+
+            div#main_section
+                div#first_part
+                    div#left_subpart
+
+                        div.unit Student ID
+   
+                        div.unit_element 170041023
+                           // to be set from db
+                     
+                        hr
+
+                        div.unit
+                            Student Name
+                        
+                        div.unit_element Mosammat Rifaa Juhani hjfbjvbfjv
+                            //to be set from db
+                       
+                        hr
+
+                        div.unit.
+                            Student Type
+                       
+                        div.unit_element.
+                            Regular
+                            //- to be set from db
+           
+
+                    div#middle_subpart
+
+                        div.unit.
+                            Current AY
+                        
+                        div.unit_element.
+                            2019-2020
+                            //- to be set from db
+                       
+                        hr
+
+                        div.unit(style={"height": "8em"}).
+                            Current Semester
+                        
+                        div.unit_element(style={"height": "8em"}).
+                            5
+                            //- to be set from db
+                
+
+                    div#right_subpart
+                        img(src=".\..\users" alt="photo of the user") <!-- image of the user -->
+               
+                div#second_part
+                    //- <!-- some fields must be editable -->
+                    div(class="unit_box" style={"float": "left"})
+                        div(class="info_piece").
+                            Department:
+                      
+                        div(class="info").
+                            Computer Science and Engineering #from_db
+                    
+
+                    div(class="unit_box" style={"float": "right"})
+                        div(class="info_piece").
+                            Program:
+                        
+                        div(class="info").
+                            Bachelor of Science #from_db
+                     
+
+                    br
+
+                    div
+                        div(class="info_piece").
+                            Enrollment Year:
+                        
+                        div(class="info").
+                            2017 #from_db
+                        
+
+                    hr
+
+                    div(class="unit_box" style={"float": "left"})
+                        div(class="info_piece").
+                            Nationality:
+                     
+                        div(class="info").
+                            #user_nationality
+                  
+
+                    div(class="unit_box" style={"float": "right"})
+                        div(class="info_piece").
+                            Date of Birth:
+                        
+                        div(class="info").
+                            #user_dob
+                 
+                    br
+
+                    div
+                        div(class="info_piece").
+                            Gender:
+                        
+                        div(class="info").
+                            Female #from_db
+                   
+                    div(class="subheading").
+                        Contact
+                  
+
+                    div(class="unit_box" style={"float": "left"})
+                        div(class="info_piece").
+                            Email-address:
+                       
+                        div(class="info").
+                            xyz@iut-dhaka.edu #from_db
+                  
+                    div(class="unit_box" style={"float": "right"})
+                        div(class="info_piece").
+                            Mobile Number:
+                        
+                        div(class="info").
+                            0123456789 #from_db
+
+                        input(class="editField info" type="tel" name="userPhone" id="userPhone")
+                    
+
+                    br
+
+                    div
+                        div(class="info_piece").
+                            Home address:
+                        
+                        div(class="info").
+                            kskmbnsfnbisnbidgbidnidgninnfnininini #from_db
+
+                        input(class="editField info" type="text" name="userAddress" id="userAddress")
+                      
+
+                    div(class="subheading").
+                        Guardian
+                    
+
+                    div(class="unit_box" style={"float": "left"})
+                        div(class="info_piece").
+                            Guardian's Name:
+                        
+                        div(class="info").
+                            asnnbnbnbnrnr #from_db
+                      
+
+                    div(class="unit_box" style={"float": "right"})
+                        div(class="info_piece").
+                            Guardian's Phone:
+                        
+                        div(class="info").
+                            1234567890 #from_db
+
+                        input(class="editField info" type="tel" name="guardianPhone" id="guardianPhone")
+                        
+                
+
+                    br
+
+                    div
+                        div(class="info_piece").
+                            Guardian's address:
+                        
+                        div(class="info").
+                            nbnenbenbtbnkbnfgknbnlfgknfgknfknk #from_db
+
+                        input(class="editField info" type="text" name="guardianAddress" id="guardianAddress")
+                        
+
+                    hr
+
+                    div(class="unit_box" style={"float": "left"})
+                        div(class="info_piece").
+                            Father's Name:
+                        
+                        div(class="info").
+                            asnnbnbnbnrnr #from_db
+                        
+        
+
+                    div(class="unit_box" style={"float": "right"})
+                        div(class="info_piece").
+                            Mother's Name:
+                        
+                        div(class="info").
+                            knsjaddhdh#from_db
+                       
+
+                    br
+
+                    div(class="unit_box" style={"float": "left"})
+                        div(class="info_piece").
+                            Father's profession:
+                        
+                        div(class="info").
+                            nbnenbenbtbnkb #from_db
+                      
+
+                    div(class="unit_box" style={"float": "right"})
+                        div(class="info_piece").
+                            Mother's profession:
+                        
+                        div(class="info").
+                            nbnenbenbtbnkb #from_db
+                     
+
+                    div(class="unit_box" style={"float": "left"})
+                        div(class="info_piece").
+                            Father's Phone:
+                        
+                        div(class="info").
+                            1202373878 #from_db
+
+                        input(class="editField info" type="tel" name="fatherPhone" id="fatherPhone")
+                        
+                
+
+                    div(class="unit_box" style={"float": "right"})
+                        div(class="info_piece").
+                            Mother's Phone:
+                        
+                        div(class="info").
+                            87381816813 #from_db
+
+                        input(class="editField info" type="tel" name="motherPhone" id="motherPhone")
+                        
+
+                    button(id="formbtn" type="submit" name="edit") Update
+
+            
+
+        script(src=".\..\frontend_js\side_bar.js")
+
+        script(src=".\..\frontend_js\profile.js")
+    
