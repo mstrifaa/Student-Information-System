@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            Log In
+        </title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+       
+
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" />
+
+       <link rel="stylesheet" type="text/css" href=".\..\css\login_page.css">
+       
+       <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div id="sign_in">
+            <img id="logo" src=".\..\images\iut_logo.png" alt="logo of IUT">
+            <p> Sign In To SIS </p>
+
+            <!-- will display when there is an error -->
+            <span id="errorMsg"> * The username and/or password do not match</span>
+
+            <form method="POST" action=".... form_handler ....">
+                <input type="text" name="user_id" placeholder="User ID" required/> <!-- only border-bottom -->
+                <br />
+                <input type="password" name="password" placeholder="Password" required/> <!-- no borders -->
+                <br />
+                <label>
+                    <input type="checkbox" name="remember" style="width: 20px;
+                                                                  height: 15px;"/> 
+                    Remember me
+                </label>
+                <br />
+
+                <button class="btn btn-success" data-toggle="button" aria-pressed="false"> Sign in </button>
+            </form>
+        </div>
+
+
+        <script>
+            //form validation and display of error message
+        </script>
+    </body>
+
+</html>

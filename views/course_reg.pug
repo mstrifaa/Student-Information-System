@@ -1,0 +1,68 @@
+doctype html
+html
+    head
+        title Course Registration
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous")
+        script(src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous")
+
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+
+        meta(name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0")
+        
+        link(rel="stylesheet" type="text/css" href="/css/course_reg.css")
+
+        script.
+            $(document).ready(function(){
+                document.querySelector('body').style.height = screen.availHeight;
+                document.querySelector('body').style.width = screen.availWidth;
+            });
+        
+       
+    
+    body
+        div
+            div(id="top_bar")
+                button.open_btn(onclick="openNav()") &#9776;
+
+                label(for="top_list")
+                    select(id="top_list" name="log_out")
+                        option(value="userName") Mosammat Rifaa Juhani
+                        option(value="logOut") Log Out
+
+            div(id="side_bar")
+                p SIS 
+                    a(href="javascript:void(0)" class="close_btn" onclick="closeNav()") &#9776;
+
+                ul
+                    li
+                        a(href="/dashboard") Dashboard
+                    li
+                        a(href="/profile") Profile
+                    li
+                        a(href="/course_reg") Course Registration
+                    li
+                        a(href="/results") Result
+                    li
+                        a(href="") Internet Acoount
+                    li
+                        a(href="/change_password") Change Password
+            
+
+            p#heading Course Registration
+
+            div(id="main_section")
+
+            //- for each course*/<!--to be rendered dynamically, for each course of the dept--> 
+                label 
+                    input(class="course" type="checkbox" name="course1") #courseCode + " - " + #course_name
+                    div(class="credits") #credits
+
+                button(type="submit") Submit
+                
+
+              
+
+        script(src="/frontend_js/side_bar.js")
+
+        script(src="/frontend_js/course_reg.js")
