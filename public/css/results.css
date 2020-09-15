@@ -138,3 +138,34 @@
                 font-size: 1.2em;
             }
 
+            
+            div.semester{
+                font-weight: bold;
+                margin: 0px 0.5rem;
+            }
+
+            div.semester, div.courseCode, div.courseName{
+                display: inline-block;
+                width: max-content;
+                padding: 0.4rem 0.5rem;
+                
+                background-color: white;
+            
+            }
+
+            div.grade{
+                width: max-content;
+                float: right;
+                padding: 0.4rem 0.5rem;
+                background-color: white;
+                font-weight: bold;
+            }
+
+            @media screen and (max-width: 720px){
+                div.grade{
+                    float: none;
+                    display: inline-block;
+                }
+            }
+
+

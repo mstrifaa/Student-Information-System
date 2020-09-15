@@ -54,12 +54,14 @@ html
 
             div(id="main_section")
                 //- for each semestr
-                div.semester 
-                  each ind in myinfo.results
-                    div=ind.course_code
-                    div=ind.course_name
-                    div=ind.grade
-                    br
+                 
+                each ind in myinfo.results
+                div
+                    div.semester(style={"background-color": "white"})
+                    div.courseCode=ind.course_code
+                    div.courseName=ind.course_name
+                    div.grade=ind.grade
+                
 
                  
 
@@ -70,6 +72,5 @@ html
         script(src="/frontend_js/login.js")
 
         //-script
-             // toggling, later
-            // somehow log out
+             
        
