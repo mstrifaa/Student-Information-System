@@ -41,12 +41,27 @@ const createSendToken = (user, statusCode, res) => {
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
-    student_id: req.body.student_id,
+    student_id: req.body.id,
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
     passwordChangedAt: req.body.passwordChangedAt,
-    role: req.body.role
+    role: req.body.role,
+
+    img: req.body.img,
+    gender: req.body.gender,
+    dob: req.body.dob,
+    phone: req.body.phone,
+    present_address: req.body.present_address,
+    father_name: req.body.father_name,
+    father_profession: req.body.father_profession,
+    father_phone: req.body.father_phone,
+    mother_name: req.body.mother_name,
+    mother_profession: req.body.mother_profession,
+    mother_phone: req.body.mother_phone,
+    guardian_name: req.body.guardian_name,
+    guardian_phone: req.body.guardian_phone,
+    guardian_address: req.body.guardian_address
   });
   createSendToken(newUser, 201, res);
 });

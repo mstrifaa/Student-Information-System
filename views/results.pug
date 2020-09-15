@@ -28,7 +28,7 @@ html
 
                 label(for="top_list")
                     select(id="top_list" name="log_out")
-                        option(value="userName") Mosammat Rifaa Juhani
+                        option(value="userName")= myinfo.name
                         option(value="logOut") Log Out
 
             div(id="side_bar")
@@ -50,19 +50,18 @@ html
                         a(href="/change_password") Change Password
             
 
-            p#heading Course Registration
+            p#heading Results
 
 
 
             div(id="main_section")
                 //- for each semestr
-                div.semester #semester_name GPA: #semster_gpa  CGPA: #cgpa
+                div.semester 
+                  each ind in myinfo.results
+                    div=ind.course_code
+                    div=ind.course_name
+                    div=ind.grade
                     br
-                
-                    ul
-                        //- for each course 
-                        li #course_name 
-                            div.grade #grade 
 
                  
 

@@ -23,17 +23,17 @@ html
     body
         div
             div#top_bar
-                button(class="open_btn" onclick="openNav()") &#9776;
+                button.open_btn(onclick="openNav()") &#9776;
 
                 label(for="top_list")
                     select#top_list(name="log_out")
-                        option(value="userName") Mosammat Rifaa Juhani
+                        option(value="userName") #{myinfo.name}
                         option(value="logOut") Log Out
 
 
             div#side_bar
-                //- p.
-                    SIS (a href="javascript:void(0)" class="close_btn" onclick="closeNav()") &#9776;
+                p SIS 
+                  a( href="javascript:void(0)" class="close_btn" onclick="closeNav()") &#9776;
 
                 ul
                     li
@@ -57,25 +57,22 @@ html
 
                         div.unit Student ID
    
-                        div.unit_element 170041023
-                           // to be set from db
+                        div.unit_element= myinfo.student_id
+                           
                      
                         hr
 
                         div.unit
                             Student Name
                         
-                        div.unit_element Mosammat Rifaa Juhani hjfbjvbfjv
-                            //to be set from db
+                        div.unit_element= myinfo.name
                        
                         hr
 
                         div.unit.
-                            Student Type
+                            Student Type 
                        
-                        div.unit_element.
-                            Regular
-                            //- to be set from db
+                        div.unit_element= myinfo.role
            
 
                     div#middle_subpart
@@ -98,7 +95,7 @@ html
                 
 
                     div#right_subpart
-                        img(src="" alt="photo of the user") 
+                        img(src=`/images/${myinfo.img}` alt= `${myinfo.img}`) 
                
                 div#second_part
                     //- <!-- some fields must be editable -->
@@ -143,7 +140,7 @@ html
                             Date of Birth:
                         
                         div(class="info").
-                            #user_dob
+                            #{myinfo.dob}
                  
                     br
 
@@ -152,7 +149,7 @@ html
                             Gender:
                         
                         div(class="info").
-                            Female #from_db
+                            #{myinfo.gender}
                    
                     div(class="subheading").
                         Contact
@@ -163,14 +160,14 @@ html
                             Email-address:
                        
                         div(class="info").
-                            xyz@iut-dhaka.edu #from_db
+                            #{myinfo.email}
                   
                     div(class="unit_box" style={"float": "right"})
                         div(class="info_piece").
                             Mobile Number:
                         
                         div(class="info").
-                            0123456789 #from_db
+                            #{myinfo.phone}
 
                         input(class="editField info" type="tel" name="userPhone" id="userPhone")
                     
@@ -182,7 +179,7 @@ html
                             Home address:
                         
                         div(class="info").
-                            kskmbnsfnbisnbidgbidnidgninnfnininini #from_db
+                            #{myinfo.present_address}
 
                         input(class="editField info" type="text" name="userAddress" id="userAddress")
                       
@@ -196,7 +193,7 @@ html
                             Guardian's Name:
                         
                         div(class="info").
-                            asnnbnbnbnrnr #from_db
+                            #{myinfo.guardian_name}
                       
 
                     div(class="unit_box" style={"float": "right"})
@@ -204,7 +201,7 @@ html
                             Guardian's Phone:
                         
                         div(class="info").
-                            1234567890 #from_db
+                            #{myinfo.guardian_phone}
 
                         input(class="editField info" type="tel" name="guardianPhone" id="guardianPhone")
                         
@@ -217,7 +214,7 @@ html
                             Guardian's address:
                         
                         div(class="info").
-                            nbnenbenbtbnkbnfgknbnlfgknfgknfknk #from_db
+                            #{myinfo.guardian_address}
 
                         input(class="editField info" type="text" name="guardianAddress" id="guardianAddress")
                         
@@ -229,7 +226,7 @@ html
                             Father's Name:
                         
                         div(class="info").
-                            asnnbnbnbnrnr #from_db
+                            #{myinfo.father_name}
                         
         
 
@@ -238,7 +235,7 @@ html
                             Mother's Name:
                         
                         div(class="info").
-                            knsjaddhdh#from_db
+                            #{myinfo.mother_name}
                        
 
                     br
@@ -248,7 +245,7 @@ html
                             Father's profession:
                         
                         div(class="info").
-                            nbnenbenbtbnkb #from_db
+                            #{myinfo.father_profession}
                       
 
                     div(class="unit_box" style={"float": "right"})
@@ -256,7 +253,7 @@ html
                             Mother's profession:
                         
                         div(class="info").
-                            nbnenbenbtbnkb #from_db
+                            #{myinfo.mother_profession}
                      
 
                     div(class="unit_box" style={"float": "left"})
@@ -264,7 +261,7 @@ html
                             Father's Phone:
                         
                         div(class="info").
-                            1202373878 #from_db
+                            #{myinfo.father_phone}
 
                         input(class="editField info" type="tel" name="fatherPhone" id="fatherPhone")
                         
@@ -275,7 +272,7 @@ html
                             Mother's Phone:
                         
                         div(class="info").
-                            87381816813 #from_db
+                            #{myinfo.mother_phone}
 
                         input(class="editField info" type="tel" name="motherPhone" id="motherPhone")
                         

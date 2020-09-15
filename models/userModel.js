@@ -43,6 +43,62 @@ const userSchema = new mongoose.Schema(
         message: 'Passwords are not same!'
       }
     },
+    img: {
+      type: String,
+      required: [true, 'Enter a image']
+    },
+    gender: {
+      type: String,
+      required: [true, 'Enter a gender']
+    },
+    dob: {
+      type: String,
+      required: [true, 'Enter a date of birth']
+    },
+    phone: {
+      type: String,
+      required: [true, 'Enter a phone']
+    },
+    present_address: {
+      type: String,
+      required: [true, 'Enter a present Address']
+    },
+    father_name: {
+      type: String,
+      required: [true, "Enter father's name"]
+    },
+    father_profession: {
+      type: String,
+      required: [true, 'Enter father profession']
+    },
+    father_phone: {
+      type: String,
+      required: [true, 'Enter father phone']
+    },
+    mother_name: {
+      type: String,
+      required: [true, 'Enter mother name']
+    },
+    mother_profession: {
+      type: String,
+      required: [true, 'Enter mother profession']
+    },
+    mother_phone: {
+      type: String,
+      required: [true, 'Enter a mother phone']
+    },
+    guardian_name: {
+      type: String,
+      required: [true, 'Enter a guardian name']
+    },
+    guardian_phone: {
+      type: String,
+      required: [true, 'Enter a guardian phone']
+    },
+    guardian_address: {
+      type: String,
+      required: [true, 'Enter a guardian address']
+    },
     passwordChangedAt: Date,
     passwordResetToken: String,
     passwordResetExpires: Date,

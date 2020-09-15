@@ -1,3 +1,5 @@
+const User = require('../models/userModel');
+const catchAsync = require('../utils/catchAsync');
 exports.getHomepage = (req, res) => {
   res.status(200).render('base');
 };
@@ -10,13 +12,29 @@ exports.getSignup = (req, res) => {
   res.status(200).render('registration');
 };
 
-exports.getResult = (req, res) => {
-  res.status(200).render('results');
-};
+exports.getResult = catchAsync(async (req, res) => {
+  const myinfo = await User.findOne({ _id: { $eq: req.user._id } }).populate({
+    path: 'results'
+  });
+  // console.log(myinfo.results);
+  res.status(200).render('results', {
+    myinfo
+  });
+});
 
-exports.getProfile = (req, res) => {
-  res.status(200).render('profile');
-};
+exports.getProfile = catchAsync(async (req, res) => {
+  const myinfo = await User.findOne({ _id: { $eq: req.user._id } }).populate({
+    path: 'results'
+  });
+  // console.log(myinfo.results.length);
+  // console.log(req.user._id);
+  // res.status(200).json({
+  //   myinfo
+  // });
+  res.status(200).render('profile', {
+    myinfo
+  });
+});
 
 exports.getDashboard = (req, res) => {
   res.status(200).render('dashboard');
