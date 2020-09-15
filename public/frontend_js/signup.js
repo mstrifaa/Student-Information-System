@@ -57,6 +57,7 @@ const signup = async (
 
 let inn = document.querySelector('.form');
 let gender;
+console.log(inn);
 
 inn.addEventListener('submit', e => {
   e.preventDefault();
