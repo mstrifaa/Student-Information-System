@@ -40,11 +40,26 @@ input {
     width: max-content;
     height: 2rem;
     margin-left: 2rem;
+    border: solid 1px;
+    border-radius: 3px;
+}
+
+input[type='file']{
+    border: none;
 }
 
 input[type="radio"] {
     margin: 1px;
     height: max-content;
+}
+
+button#submit{
+    padding: 0.5rem 5%;
+
+    border-radius: 2rem;
+    background-color: rgb(6, 160, 6);
+    color: white;
+    margin: auto 42%;
 }
 
 @media screen and (max-width: 720px) {
