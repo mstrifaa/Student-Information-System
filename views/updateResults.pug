@@ -1,0 +1,73 @@
+doctype html
+html
+    head
+        title Update Results
+        meta(name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0")
+ 
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+    
+
+        link(rel="stylesheet" type="text/css" href="/css/createResults.css")
+       
+        script(src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous")
+
+        script.
+                $(document).ready(function(){
+                    document.querySelector('body').style.height = screen.availHeight;
+                    document.querySelector('body').style.width = screen.availWidth;
+                });
+
+        body
+            div
+                div#top_bar
+                    button(class="open_btn" onclick="openNav()") &#9776;
+
+                    label(for="top_list")
+                        select#top_list(name="log_out")
+                            option(value="userName") Mosammat Rifaa Juhani
+                            option(value="logOut") Log Out
+
+
+                div#side_bar
+                    p.
+                        SIS (a href="javascript:void(0)" class="close_btn" onclick="closeNav()") &#9776;
+
+                    ul
+                        li
+                            a(href="/dashboard") Dashboard
+                        li
+                            a(href="/profile") Profile
+                        li
+                            a(href="#") Result
+                        li
+                            a(href=" ") Internet Account
+                        li
+                            a(href="/change_password") Change Password
+
+                p#heading Update Results
+
+                div#main_section
+                    form
+                        label(for="studentID") Student Number
+                            input(type="text" name="studentID" id="studentID")
+
+                        label(for="semester") Semester
+                            input(type="text" name="semester" id="semester")
+
+                        label(for="courseCode") Course Code
+                            input(type="text" name="courseCode" id="courseCode")
+
+                        label(for="courseName") Course Name
+                            input(type="text" name="courseName" id="courseName")
+
+                        label(for="grade") Grade
+                            input(type="text" name="grade" id="grade")
+
+                        button(type="submit") Submit
+                
+            script(src="/frontend_js/side_bar.js")
+            script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js")
+            script(src="/frontend_js/login.js")
+                        
+                        
+                        
