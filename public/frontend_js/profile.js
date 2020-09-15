@@ -23,6 +23,10 @@
 
             formButton.innerHTML = 'Save';
 
+            for (i = 0; i < inputFields.length; i++) {
+                inputFields[i].style.display = 'initial';
+            }
+    
             // code goes to take user text-inputs 
 
             inUpdate = true;
@@ -32,6 +36,9 @@
 
             formButton.innerHTML = 'Update';
 
+            for (i = 0; i < inputFields.length; i++) {
+                inputFields[i].style.display = 'none';
+            }
             //code goes to save user-inputs
 
             inUpdate = false;

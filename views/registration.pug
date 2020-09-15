@@ -31,6 +31,12 @@ html
                             span(style={"color": "red"}) *
 
                         input#student_id( type="text" name="student_no" required)
+
+                    div(class="input")
+                        label(for="department") Department
+                            span(style={"color": "red"}) *
+
+                        input#department( type="text" name="department" required)
                     
 
                     div(class="input")
@@ -62,7 +68,11 @@ html
                         input#female(type="radio" name="gender")
 
                 
-                    br 
+                    div(class="input")
+                        label(for="nationality") E-mail Address
+                            span(style={"color": "red"}) *
+
+                        input#nationality( type="text" name="nationality" required) 
 
                     div(class="input")
                         label(for="email") E-mail Address
