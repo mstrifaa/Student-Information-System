@@ -31,7 +31,7 @@ const logout = async () => {
 };
 
 let inn = document.querySelector('.form');
-let out = document.querySelector('button');
+let out = document.querySelector('#top_list');
 
 if (inn) {
   inn.addEventListener('submit', e => {
@@ -42,5 +42,5 @@ if (inn) {
     login(email, password);
   });
 } else if (out) {
-  out.addEventListener('click', logout);
+  out.addEventListener('change', logout);
 }
