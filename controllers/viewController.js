@@ -47,3 +47,7 @@ exports.getCourseReg = (req, res) => {
 exports.changePassword = (req, res) => {
   res.status(200).render('change_password');
 };
+
+exports.createResult = (req, res) => {
+  res.status(200).render('createResult');
+};
