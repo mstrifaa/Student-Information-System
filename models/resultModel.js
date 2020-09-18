@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const resultSchema = new mongoose.Schema(
   {
+    semester: {
+      type: String,
+      required: [true, 'Enter semester']
+    },
     course_code: {
       type: String,
       required: [true, 'Course Code cannot be empty!']

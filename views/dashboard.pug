@@ -26,7 +26,7 @@ html
             div#top_bar
                 label(for="top_list")
                     select#top_list(name="log_out")
-                        option(value="userName") Mosammat Rifaa Juhani
+                        option(value="userName")= myinfo.name
                         option(value="logOut") Log Out
             
                 
@@ -61,7 +61,7 @@ html
                         span(style={"color": "royalblue", "font-size": "1.5em"}) Change Password
               
                 div#int_acc.inner-box
-                    a(href="10.220.20.12") 
+                    a(href="/10.220.20.12") 
                         
                         img(src="/images/internet_icon_1.png")
 

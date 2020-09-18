@@ -36,18 +36,27 @@ exports.getProfile = catchAsync(async (req, res) => {
   });
 });
 
-exports.getDashboard = (req, res) => {
-  res.status(200).render('dashboard');
-};
+exports.getDashboard = catchAsync(async (req, res) => {
+  const myinfo = await User.findOne({ _id: { $eq: req.user._id } });
+  res.status(200).render('dashboard', {
+    myinfo
+  });
+});
 
 exports.getCourseReg = (req, res) => {
   res.status(200).render('course_reg');
 };
 
-exports.changePassword = (req, res) => {
-  res.status(200).render('change_password');
-};
+exports.changePassword = catchAsync(async (req, res) => {
+  const myinfo = await User.findOne({ _id: { $eq: req.user._id } });
+  res.status(200).render('change_password', {
+    myinfo
+  });
+});
 
-exports.createResult = (req, res) => {
-  res.status(200).render('createResult');
-};
+exports.createResult = catchAsync(async (req, res) => {
+  const myinfo = await User.findOne({ _id: { $eq: req.user._id } });
+  res.status(200).render('createResult', {
+    myinfo
+  });
+});

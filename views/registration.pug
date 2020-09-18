@@ -20,7 +20,7 @@ html
 
     body
         div
-            form.form
+            form.form(enctype="multipart/form-data")
 
                 div(id="left_box" class="inside_form")
 
@@ -47,7 +47,7 @@ html
                     
                     divz(id="userPhoto" style={"width": "max-content"})
                         label(for="userImage") Upoad your picture
-                        input#userImage(type="file" required)
+                        input#userImage(type="file" name='photo' required)
                         
                    
                     br
@@ -59,13 +59,11 @@ html
                         input#dob( type="date" name="d_birth" required)
                    
 
-                    div(class="input") Gender 
-                        span(style={"color": "red"}) *
-                        label(for="male" style={"margin-left": "2rem"}) Male
-                        input#male( type="radio" name="gender")
+                    div(class="input")  
+                        label(for="gender") Gender
+                            span(style={"color": "red"}) *
 
-                        label(for="female" style={"margin-left": "2rem"}) Female
-                        input#female(type="radio" name="gender")
+                        input#gender( type="text" name="gender" required) 
 
                 
                     div(class="input")

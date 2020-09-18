@@ -1,3 +1,5 @@
+const multer = require('multer');
+const sharp = require('sharp');
 const crypto = require('crypto');
 const { promisify } = require('util'); // built in promise function
 const jwt = require('jsonwebtoken');
@@ -5,6 +7,45 @@ const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 // const sendEmail = require('./../utils/email');
+
+// const multerStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'public/images/users');
+//   },
+//   filename: (req, file, cb) => {
+//     const ext = file.mimetype.split('/')[1];
+//     cb(null, `user-${req.body.id}-${Date.now()}.${ext}`);
+//   }
+// });
+
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(new AppError('Not an image! Please upload only images.', 400), false);
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
+
+exports.resizeUserPhoto = (req, res, next) => {
+  req.file.filename = `user-${req.body.id}-${Date.now()}.jpeg`;
+
+  sharp(req.file.buffer)
+    .resize(500, 500)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(`public/images/users/${req.file.filename}`);
+
+  next();
+};
+
+exports.uploadUserPhoto = upload.single('photo');
 
 const signToken = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -48,7 +89,9 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordChangedAt: req.body.passwordChangedAt,
     role: req.body.role,
 
-    img: req.body.img,
+    photo: req.file.filename,
+    nationality: req.body.nationality,
+    dept: req.body.department,
     gender: req.body.gender,
     dob: req.body.dob,
     phone: req.body.phone,
@@ -63,6 +106,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     guardian_phone: req.body.guardian_phone,
     guardian_address: req.body.guardian_address
   });
+
   createSendToken(newUser, 201, res);
 });
 
@@ -131,7 +175,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 });
 
 exports.isLoggedin = async (req, res, next) => {
-  if (req.cookies.jwt && req.cookies.jwt != 'loggedout') {
+  if (req.cookies.jwt) {
     try {
       const decoded = await promisify(jwt.verify)(
         req.cookies.jwt,
@@ -244,6 +288,7 @@ exports.restrictTo = (...roles) => {
 exports.updatePassword = catchAsync(async (req, res, next) => {
   //1)get user from collection
   const user = await User.findById(req.user.id).select('+password');
+  // console.log(user);
 
   //2)check if posted password is correct
   if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {

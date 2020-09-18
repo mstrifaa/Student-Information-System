@@ -9,6 +9,14 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Enter your Student ID'],
       unique: true
     },
+    dept: {
+      type: String,
+      required: [true, 'Enter your department!']
+    },
+    nationality: {
+      type: String,
+      required: [true, 'Enter your nationality!']
+    },
     name: {
       type: String,
       required: [true, 'Enter your name!']
@@ -42,10 +50,6 @@ const userSchema = new mongoose.Schema(
         },
         message: 'Passwords are not same!'
       }
-    },
-    img: {
-      type: String,
-      required: [true, 'Enter a image']
     },
     gender: {
       type: String,

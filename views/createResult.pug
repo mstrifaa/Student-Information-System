@@ -20,17 +20,17 @@ html
         body
             div
                 div#top_bar
-                    button(class="open_btn" onclick="openNav()") &#9776;
-
-                    label(for="top_list")
-                        select#top_list(name="log_out")
-                            option(value="userName") Mosammat Rifaa Juhani
-                            option(value="logOut") Log Out
+                  button.open_btn(onclick='openNav()') &#9776;
+                  
+                  label(for='top_list')
+                      select#top_list(name='log_out') 
+                          option(value='userName')=myinfo.name
+                          option(value='logOut') Log Out
 
 
                 div#side_bar
-                    p
-                        SIS (a href="javascript:void(0)" class="close_btn" onclick="closeNav()") &#9776;
+                    p SIS 
+                      a(href="javascript:void(0)" class="close_btn" onclick="closeNav()") &#9776;
 
                     ul
                         li
@@ -38,9 +38,9 @@ html
                         li
                             a(href="/profile") Profile
                         li
-                            a(href="#") Result
+                            a(href="/results") Result
                         li
-                            a(href=" ") Internet Account
+                            a(href="/10.220.20.12") Internet Account
                         li
                             a(href="/change_password") Change Password
 
@@ -67,6 +67,7 @@ html
                 
             script(src="/frontend_js/side_bar.js")
             script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js")
+            script(src="/frontend_js/createResult.js")
             script(src="/frontend_js/login.js")
                         
                         

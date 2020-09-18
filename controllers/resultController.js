@@ -21,6 +21,7 @@ exports.getAllResults = catchAsync(async (req, res, next) => {
 exports.createResult = catchAsync(async (req, res, next) => {
   const newResult = await Result.create(req.body);
   // console.log(req.user.id);
+  // console.log('hello');
 
   res.status(200).json({
     status: 'success',
