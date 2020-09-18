@@ -1,18 +1,18 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv"); // to read config.env file
+const mongoose = require('mongoose');
+const dotenv = require('dotenv'); // to read config.env file
 
-process.on("uncaughtException", err => {
+process.on('uncaughtException', err => {
   console.log(err.name, err.message);
-  console.log("UNCAUGHTEXCEPTION! SHUTTING DOWN...");
+  console.log('UNCAUGHTEXCEPTION! SHUTTING DOWN...');
   process.exit(1);
 });
 
-dotenv.config({ path: "./config.env" });
-const app = require("./app");
+dotenv.config({ path: './config.env' });
+const app = require('./app');
 // console.log(process.env.NODE_ENV);
 
 const DB = process.env.DATABASE.replace(
-  "<PASSWORD>",
+  '<PASSWORD>',
   process.env.DATABASE_PASSWORD
 );
 
@@ -23,16 +23,16 @@ mongoose
     useFindAndModify: false,
     useUnifiedTopology: true
   })
-  .then(() => console.log("DB connection successful!"));
+  .then(() => console.log('DB connection successful!'));
 
-const port = 3000;
+const port = process.env.port || 3000;
 const server = app.listen(port, () => {
   console.log(`App running on port ${port}`);
 });
 
-process.on("unhandledRejection", err => {
+process.on('unhandledRejection', err => {
   console.log(err.name, err.message);
-  console.log("UNHANDLEDREJECTION! SHUTTING DOWN...");
+  console.log('UNHANDLEDREJECTION! SHUTTING DOWN...');
   server.close(() => {
     process.exit(1);
   });
