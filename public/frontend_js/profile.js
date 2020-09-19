@@ -1,18 +1,14 @@
-    // to log out
-    let drpdown = document.querySelector("select");
-
-    drpdown.addEventListener('input', function(e){
-
-        console.log(e.target);
-        console.log(e.target.value);
-    })
+   
 
 
     //changing some of the fields
     let formButton = document.querySelector("#formbtn");
-    console.log(formButton);
-
+    let inputFields = document.getElementsByTagName("input");
+  
     let inUpdate = false;
+     for (i = 0; i < inputFields.length; i++) {
+                inputFields[i].style.display = 'none';
+            }
 
     formButton.onclick = editProfile;
 
